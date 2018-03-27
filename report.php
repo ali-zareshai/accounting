@@ -9,6 +9,19 @@ require "main.php";
 <script src="assets/js/light.js"></script>
 
 <script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            // setmenu(1);
+            $("#menu1").removeClass("backm");
+            $("#menu2").removeClass("backm");
+            $("#menu3").removeClass("backm");
+            $("#menu4").removeClass("backm");
+            $("#menu5").removeClass("backm");
+            $("#menu6").removeClass("backm");
+            $("#menu2").addClass("backm");
+
+        });
+    });
     function daychart() {
         var chart = AmCharts.makeChart("chartdiv", {
             "type": "serial",
@@ -152,7 +165,7 @@ require "main.php";
     })
 </script>
 
-<div class="col-md-12">
+<div class="col-md-12" style="margin-top: 6%">
     <div class="col-md-2 " style="float: right">
     <select class="form-control" id="type">
         <option>انتخاب نوع گزارش </option>

@@ -34,6 +34,49 @@ R::debug(false);
     <script src="assets/js/token.js"> </script>
     <script src="assets/js/js-persian-cal.min.js"> </script>
     <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/latin2Arabic.jquery.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                $("#timeer").html($.latin2Arabic.toArabic(moment().format('h:mm:ss')));
+
+            },1000);
+            ///// clear icon ///
+            // function setmenu(sel) {
+                // $("#menu1").removeAttr("background-color");
+                // $("#menu2").removeAttr("background-color");
+                // $("#menu3").removeAttr("background-color");
+                // $("#menu4").removeAttr("background-color");
+                // $("#menu5").removeAttr("background-color");
+                // $("#menu6").removeAttr("background-color");
+                // switch (sel){
+                //     case 1:
+                //         $("#menu1").attr("background-color","#0000001a");
+                //         break;
+                //     case 2:
+                //         $("#menu2").attr("background-color","#0000001a");
+                //         break;
+                //     case 3:
+                //         $("#menu3").attr("background-color","#0000001a");
+                //         break;
+                //     case 4:
+                //         $("#menu4").attr("background-color","#0000001a");
+                //         break;
+                //     case 5:
+                //         $("#menu5").attr("background-color","#0000001a");
+                //         break;
+                //     case 6:
+                //         $("#menu6").attr("background-color","#0000001a");
+                //         break;
+                //
+                //
+                // }
+            // }
+        });
+
+    </script>
+
 <!--    ///////-->
     <script>
         function changepass() {
@@ -74,6 +117,11 @@ R::debug(false);
             }
         }
     </script>
+    <style>
+        .backm{
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+    </style>
 
 
 
@@ -85,7 +133,7 @@ R::debug(false);
 <body dir="rtl">
 <div class="container-fluid">
     <!-- Second navbar for categories -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" style="position: fixed;z-index: 99999;width: 100%;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -95,7 +143,12 @@ R::debug(false);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div style="margin-top: 7%" class="dropdown">
+                <div style="display: inline-flex;margin-top: 6%">
+
+                <div style="margin-top: 1%;margin-left: 25%">
+                    <span class="text-warning" id="timeer" style="font-size: 20px"></span>
+                </div>
+                <div  class="dropdown">
                     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <?=$_SESSION['name'] ?>
                         <span class="caret"></span>
@@ -107,30 +160,24 @@ R::debug(false);
                         <li><a href="assets/logout.php">خروج</a></li>
                     </ul>
                 </div>
+                </div>
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="dashbord.php">داشبورد</a></li>
-                    <li><a href="new_kala.php">اجناس وارداتی</a></li>
-                    <li><a href="nemayandeh.php">نمایندگان</a></li>
-                    <li><a href="nasieh.php">نسیه ها</a></li>
-                    <li><a href="report.php">گزارشات</a></li>
-                    <li><a href="users.php">کاربران</a></li>
-                    <li>
-                        <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse1" aria-expanded="false" aria-controls="nav-collapse1">Categories</a>
-                    </li>
+                    <li id="menu6"><a href="dashbord.php">داشبورد</a></li>
+                    <li id="menu5"><a href="new_kala.php">اجناس وارداتی</a></li>
+                    <li id="menu4"><a href="nemayandeh.php">نمایندگان</a></li>
+                    <li id="menu3"><a href="nasieh.php">نسیه ها</a></li>
+                    <li id="menu2"><a href="report.php">گزارشات</a></li>
+                    <li id="menu1"><a href="users.php">کاربران</a></li>
+
                 </ul>
-                <ul class="collapse nav navbar-nav nav-collapse" id="nav-collapse1">
-                    <li><a href="#">Web design</a></li>
-                    <li><a href="#">Development</a></li>
-                    <li><a href="#">Graphic design</a></li>
-                    <li><a href="#">Print</a></li>
-                    <li><a href="#">Motion</a></li>
-                    <li><a href="#">Mobile apps</a></li>
-                </ul>
+
             </div><!-- /.navbar-collapse -->
+
         </div><!-- /.container -->
     </nav><!-- /.navbar -->
 <!--    /////////// box-->

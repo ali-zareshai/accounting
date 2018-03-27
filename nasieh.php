@@ -16,6 +16,15 @@ require "main.php";
 
     /////////////////////////////
     $(document).ready(function () {
+        $("#menu1").removeClass("backm");
+        $("#menu2").removeClass("backm");
+        $("#menu3").removeClass("backm");
+        $("#menu4").removeClass("backm");
+        $("#menu5").removeClass("backm");
+        $("#menu6").removeClass("backm");
+        $("#menu3").addClass("backm");
+
+
         $("#price_total").keyup(function () {
             $("#price_total").val(ToRial($("#price_total").val()));
         });
@@ -163,6 +172,7 @@ require "main.php";
     }
 </script>
 <!-- Button trigger modal -->
+<div style="margin-top: 6%">
 <div class="alert alert-danger" role="alert" id="alert"></div>
 <input type="hidden" id="daryaft">
 <input type="hidden" id="total">
@@ -256,6 +266,7 @@ require "main.php";
         <button class="btn btn-success" id="download-csv" style="float: left">خروجی اکسل</button>
         <div id="example-table" style="margin-top: 5%"></div>
     </div>
+</div>
 </div>
 <script>
     var objCal1 = new AMIB.persianCalendar( 'pcal1',

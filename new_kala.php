@@ -46,6 +46,15 @@ require "main.php";
     }
     /////////////////////// table //////////////
     $(document).ready(function() {
+        $("#menu1").removeClass("backm");
+        $("#menu2").removeClass("backm");
+        $("#menu3").removeClass("backm");
+        $("#menu4").removeClass("backm");
+        $("#menu5").removeClass("backm");
+        $("#menu6").removeClass("backm");
+        $("#menu5").addClass("backm");
+
+
         $("#example-table").tabulator({
             height:"511px",
             layout:"fitColumns",
@@ -87,7 +96,8 @@ require "main.php";
 
 </script>
 
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+
+<button style="margin-top: 6%" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     جنس جدید
 </button>
 
@@ -100,7 +110,7 @@ require "main.php";
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button  type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel" style="margin-right: 50%">کالای جدید</h4>
             </div>
             <div class="modal-body">

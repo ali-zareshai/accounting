@@ -55,12 +55,17 @@ require "main.php";
 
     }
     function refresh() {
-
         $("#example-table").tabulator("setData", <?= json_encode(R::getAll( 'SELECT * FROM personel' )) ?>);
 
     }
     $(document).ready(function() {
-
+        $("#menu1").removeClass("backm");
+        $("#menu2").removeClass("backm");
+        $("#menu3").removeClass("backm");
+        $("#menu4").removeClass("backm");
+        $("#menu5").removeClass("backm");
+        $("#menu6").removeClass("backm");
+        $("#menu4").addClass("backm");
         $("#example-table").tabulator({
             height:505, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
             layout:"fitColumns",
@@ -122,7 +127,7 @@ require "main.php";
 
     } );
 </script>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<button style="margin-top: 6%" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     نماینده جدید
 </button>
 

@@ -3,6 +3,18 @@ require "main.php";
 require "assets/jdf.php";
 ?>
 <script>
+    $(document).ready(function () {
+        // setmenu(1);
+        $("#menu1").removeClass("backm");
+        $("#menu2").removeClass("backm");
+        $("#menu3").removeClass("backm");
+        $("#menu4").removeClass("backm");
+        $("#menu5").removeClass("backm");
+        $("#menu6").removeClass("backm");
+        $("#menu1").addClass("backm");
+
+    });
+
     function newww() {
         var name=$("#name").val();
         var username=$("#username").val();
@@ -43,7 +55,7 @@ require "assets/jdf.php";
         }
     }
 </script>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<button style="margin-top: 6%" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     کاربر جدید
 </button>
 
@@ -83,7 +95,7 @@ require "assets/jdf.php";
         </div>
     </div>
 </div>
-<div class="col-md-12" style="margin-top: 2%">
+<div class="col-md-12" style="margin-top: 2%;margin-top: 3%">
     <div class="panel">
         <table class="table table-hover">
             <thead>
