@@ -6,6 +6,22 @@ session_start();
 $current_pass=Valid::input($_POST['current_pass']);
 $pass1=Valid::input($_POST['pass1']);
 $pass2=Valid::input($_POST['pass2']);
+///
+if (strlen($pass1) < 8) {
+    $errors[] = "رمز عبور کمتر از ۸ کاراکتر است";
+}
+
+if (!preg_match("#[0-9]+#", $pass1)) {
+    $errors[] = "رمز عبور باید شامل اعداد هم باشد";
+}
+
+if (!preg_match("#[a-zA-Z]+#", $pass1)) {
+    $errors[] = "رمز عبور باید شامل حروف کوچک هم باشد";
+}
+if (!empty($errors)){
+    echo implode("--",$errors);
+    die();
+}
 ///////check pass //
 $id=$_SESSION['user_id'];
 $row=R::getAll("SELECT * FROM user WHERE id=$id");

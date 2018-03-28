@@ -12,6 +12,50 @@ require "assets/jdf.php";
         $("#menu5").removeClass("backm");
         $("#menu6").removeClass("backm");
         $("#menu1").addClass("backm");
+        /////checkusername /////
+        $("#username").keyup(function () {
+            var usernm=$("#username").val();
+            var token=$("#new_user_token").val();
+            $.ajax({
+                url: "assets/ajax/users.php",
+                type: "POST",
+                data: {action : "chkuser",user:usernm,token:token},
+                'success':function (data) {
+                    if (data=="ok"){
+                        $("#validuser").addClass("has-success");
+                        $("#validuser").removeClass("has-error");
+                    }else {
+                        $("#validuser").addClass("has-error");
+                        $("#validuser").removeClass("has-success");
+                    }
+                }
+            });
+        });
+        ///// check pass ////
+        $("#pass1").keyup(function () {
+            var pass=$("#pass1").val();
+            var token=$("#new_user_token").val();
+            $.ajax({
+                url: "assets/ajax/users.php",
+                type: "POST",
+                data: {action : "chckpass",pass:pass,token:token},
+                'success':function (data) {
+                    if (data=="ok"){
+                        $("#passerrorul").empty();
+                        $("#validpass").addClass("has-success");
+                        $("#validpass").removeClass("has-error");
+                    }else{
+                        $("#passerrorul").empty();
+                        $("#validpass").addClass("has-error");
+                        $("#validpass").removeClass("has-success");
+                        var error=data.split(",");
+                        $.each(error,function (index,item) {
+                            $("#passerrorul").append("</li><li>"+item);
+                        });
+                    }
+                }
+            });
+        });
 
     });
 
@@ -73,12 +117,19 @@ require "assets/jdf.php";
                         <input type="text" id="name" class="form-control" placeholder="نام ونام خانوادگی">
                     </div>
                     <div class="col-md-12">
+                        <div class="form-group" id="validuser">
                         <label class="text-primary">نام کاربری:</label>
                         <input type="text" id="username" class="form-control" placeholder="نام کاربری">
                     </div>
+                    </div>
                     <div class="col-md-12">
+                        <div class="form-group" id="validpass">
                         <label class="text-primary">رمز عبور:</label>
                         <input type="password" id="pass1" class="form-control" placeholder="رمز عبور">
+                            <ul id="passerrorul" style="margin-top: 2%;">
+
+                            </ul>
+                    </div>
                     </div>
                     <div class="col-md-12" style="margin-bottom: 5%">
                         <label class="text-primary">تکرار رمز عبور:</label>

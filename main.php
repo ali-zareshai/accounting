@@ -121,6 +121,9 @@ R::debug(false);
         .backm{
             background-color: rgba(0, 0, 0, 0.15);
         }
+        .modal-dialog{
+            margin-top: 7%;!important;
+        }
     </style>
 
 

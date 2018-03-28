@@ -192,10 +192,14 @@ require "main.php";
                 <form name="new_nasieh">
                 <div class="col-md-12">
                     <label class="text-primary">تاریخ:</label>
-                    <input class="form-control" id="pcal1" placeholder="تاریخ" autofocus="autofocus">
-                    <input type="hidden" id="extra" class="pdate">
+                    <div class="input-group" style="direction: ltr">
+                        <span id="basic-addon1" class="input-group-addon"><img src="assets/img/calendar-alt.svg" height="20" width="20"></span>
+                    <input aria-describedby="basic-addon1" style="direction: rtl;margin-bottom: -20px" class="form-control" id="pcal1" placeholder="تاریخ" autofocus="autofocus">
+                        <input type="hidden" id="extra" class="pdate">
+                    </div>
                 </div>
-                    <div class="col-md-12">
+                    <br>
+                    <div class="col-md-12" style="margin-top: 6%;">
                         <div class="col-md-9">
                             <select style="margin-right: 10%" size="6" class="selectpicker" data-live-search="true" id="nemayandeh">
                                 <?php
@@ -229,24 +233,24 @@ require "main.php";
                     </div>
                         <div class="col-md-12" style="margin-top: 5%">
                             <label class="text-primary">متراژ فروش:</label>
-                            <div class="input-group">
+                            <div class="input-group" style="direction: ltr">
                                 <span class="input-group-addon">مترمربع</span>
-                                <input class="form-control" type="text" id="meterf" placeholder="متراژ فروش(مترمربع)">
+                                <input style="direction: rtl" class="form-control" type="text" id="meterf" placeholder="متراژ فروش(مترمربع)">
                             </div>
                         </div>
                     <div class="col-md-12" style="margin-top: 3%">
                         <label class="text-primary">جمع کل قیمت:</label>
-                        <div class="input-group">
+                        <div class="input-group" style="direction: ltr">
                             <span class="input-group-addon">تومان</span>
-                            <input class="form-control" placeholder="قیمت کل(تومان)" id="price_total" type="text">
+                            <input style="direction: rtl" class="form-control" placeholder="قیمت کل(تومان)" id="price_total" type="text">
                         </div>
 
                     </div>
                     <div class="col-md-12" style="margin-top: 3%;;margin-bottom: 5%">
                         <label class="text-primary">وجه دریافتی:</label>
-                        <div class="input-group">
+                        <div class="input-group" style="direction: ltr">
                             <span class="input-group-addon">تومان</span>
-                            <input value="" class="form-control" type="text" id="daryafti" placeholder="وجه دریافتی(تومان)">
+                            <input style="direction: rtl" value="" class="form-control" type="text" id="daryafti" placeholder="وجه دریافتی(تومان)">
                         </div>
 
                     </div>
@@ -255,7 +259,7 @@ require "main.php";
             </div>
             <div class="modal-footer" style="margin-top: 5%;margin-bottom: 2%">
                 <button type="button" class="btn btn-default" data-dismiss="modal">لغو</button>
-                <button id="save" type="button" class="btn btn-primary" style="margin-right: 10%;width: 20%">ذخیره</button>
+                <button id="save" type="button" class="btn btn-primary" style="margin-right: 10%;width: 20%">ذخیره<img src="assets/img/save.svg" width="20" height="20" style="margin-right: 15%"> </button>
                 <img src="assets/img/Waitinggif" width="40" height="40" id="wait" style="display: none;margin-right: 50%">
             </div>
         </div>

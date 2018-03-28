@@ -127,6 +127,11 @@ require "main.php";
 
     } );
 </script>
+<style>
+    .col-md-12{
+        margin-top: 2%!important;
+    }
+</style>
 <button style="margin-top: 6%" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     نماینده جدید
 </button>
@@ -145,21 +150,33 @@ require "main.php";
                         <label class="text-primary">نام:</label>
                         <input id="name" type="text" name="name" class="form-control" PLACEHOLDER="نام" >
                     </div>
+                    <br>
                     <div class="col-md-12">
                         <label class="text-primary">نام کاریری:</label>
                         <input id="user" type="text" name="user" class="form-control" PLACEHOLDER="نام کاربری" >
                     </div>
+                    <br>
+
                     <div class="col-md-12">
                         <label class="text-primary">تلفن:</label>
-                        <input id="tele" type="text" name="tele" class="form-control" PLACEHOLDER="تلفن" >
+                        <div class="input-group" style="direction: ltr">
+                        <span class="input-group-addon"><img src="assets/img/telephone-of-old-design.svg" width="20" height="20"></span>
+                        <input style="direction: rtl" id="tele" type="text" name="tele" class="form-control" PLACEHOLDER="تلفن" >
+                    </div>
                     </div>
                     <div class="col-md-12">
                         <label class="text-primary">موبایل:</label>
-                        <input id="mobile" type="text" name="mobile" class="form-control" PLACEHOLDER="موبایل" >
+                        <div class="input-group" style="direction: ltr">
+                            <span class="input-group-addon"><img src="assets/img/smartphone.svg" width="20" height="20"></span>
+                        <input style="direction: rtl" id="mobile" type="text" name="mobile" class="form-control" PLACEHOLDER="موبایل" >
+                    </div>
                     </div>
                     <div class="col-md-12">
                         <label class="text-primary">آدرس:</label>
-                        <input id="address" type="text" name="address" class="form-control" PLACEHOLDER="آدرس"  >
+                        <div class="input-group" style="direction: ltr">
+                            <span class="input-group-addon"><img src="assets/img/location-pin.svg" width="20" height="20"></span>
+                        <input style="direction: rtl" id="address" type="text" name="address" class="form-control" PLACEHOLDER="آدرس"  >
+                    </div>
                     </div>
                 </form>
 
@@ -167,7 +184,7 @@ require "main.php";
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-                <button type="button" class="btn btn-primary" onclick="regiter()">ذخیره</button>
+                <button style="margin-right: 6%" type="button" class="btn btn-primary" onclick="regiter()">ذخیره<img src="assets/img/save.svg" width="20" height="20" style="margin-right: 15%"></button>
                 <img src="assets/img/Waitinggif" width="40" height="40" style="display: none" id="wait">
             </div>
         </div>
