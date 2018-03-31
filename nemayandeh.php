@@ -133,7 +133,7 @@ require "main.php";
     }
 </style>
 <button style="margin-top: 6%" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    نماینده جدید
+    نماینده جدید<img style="margin-right: 10%;" src="assets/img/add.png" width="20" height="20">
 </button>
 
 <!-- Modal -->
@@ -153,7 +153,10 @@ require "main.php";
                     <br>
                     <div class="col-md-12">
                         <label class="text-primary">نام کاریری:</label>
-                        <input id="user" type="text" name="user" class="form-control" PLACEHOLDER="نام کاربری" >
+                        <div class="input-group" style="direction: ltr">
+                            <span class="input-group-addon"><img src="assets/img/user.png" width="20" height="20"></span>
+                        <input style="direction: rtl" id="user" type="text" name="user" class="form-control" PLACEHOLDER="نام کاربری" >
+                    </div>
                     </div>
                     <br>
 
@@ -183,7 +186,7 @@ require "main.php";
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">بستن<img style="margin-right: 10%;" src="assets/img/del.png" width="20" height="20"></button>
                 <button style="margin-right: 6%" type="button" class="btn btn-primary" onclick="regiter()">ذخیره<img src="assets/img/save.svg" width="20" height="20" style="margin-right: 15%"></button>
                 <img src="assets/img/Waitinggif" width="40" height="40" style="display: none" id="wait">
             </div>

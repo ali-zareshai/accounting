@@ -79,6 +79,35 @@ R::debug(false);
 
 <!--    ///////-->
     <script>
+        $(document).ready(function () {
+            $("#new_pass1").keyup(function () {
+                var  pass=$("#new_pass1").val();
+                var token=$("#chg_pass_token").val();
+
+                $.ajax({
+                    url: "assets/ajax/changepss.php",
+                    type: "POST",
+                    data: {action: "chk", pass: pass,token: token},
+                    dataType: "html",
+                    'success': function (data) {
+                        $("#errors_pass").empty();
+                        if (data=="ok"){
+                            $("#validpass2").addClass("has-success");
+                            $("#validpass2").removeClass("has-error");
+
+                        }else {
+                            $("#validpass2").removeClass("has-success");
+                            $("#validpass2").addClass("has-error");
+                            var error=data.split("-");
+                            $.each(error,function (index,item) {
+                                $("#errors_pass").append("</li><li>"+item);
+                            });
+                        }
+                    }
+
+                });
+            });
+        });
         function changepass() {
             var currentpass=$("#current_pass").val();
             var new1=$("#new_pass1").val();
@@ -97,7 +126,7 @@ R::debug(false);
                         $.ajax({
                             url: "assets/ajax/changepss.php",
                             type: "POST",
-                            data: {current_pass:currentpass,pass1:new1,pass2:new2,token:token},
+                            data: {action:"change",current_pass:currentpass,pass1:new1,pass2:new2,token:token},
                             dataType: "html",
                             'success':function (data) {
                                 if (data=="ok"){
@@ -137,7 +166,7 @@ R::debug(false);
 <div class="container-fluid">
     <!-- Second navbar for categories -->
     <nav class="navbar navbar-default" style="position: fixed;z-index: 99999;width: 100%;">
-        <div class="container">
+        <div class="container" style="width: 100%">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -146,21 +175,22 @@ R::debug(false);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div style="display: inline-flex;margin-top: 6%">
+                <div style="display: inline-flex;margin-top: 3%;margin-left: 25%">
 
-                <div style="margin-top: 1%;margin-left: 25%">
+                <div style="margin-top: 1%;margin-left: 20%">
                     <span class="text-warning" id="timeer" style="font-size: 20px"></span>
                 </div>
                 <div  class="dropdown">
                     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <img style="margin-right: 10%;" src="assets/img/user2.png" width="20" height="20">
                         <?=$_SESSION['name'] ?>
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">تنظیمات</a></li>
-                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">تغییر رمز عبور</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="margin-right: -5%;">
+                        <li><a href="#">تنظیمات<img style="margin-right: 10%;" src="assets/img/option.png" width="20" height="20"></a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">تغییر رمز عبور<img style="margin-right: 10%;" src="assets/img/pass.png" width="20" height="20"></a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="assets/logout.php">خروج</a></li>
+                        <li><a href="assets/logout.php">خروج<img style="margin-right: 10%;" src="assets/img/logout.png" width="20" height="20"></a></li>
                     </ul>
                 </div>
                 </div>
@@ -170,12 +200,12 @@ R::debug(false);
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li id="menu6"><a href="dashbord.php">داشبورد</a></li>
-                    <li id="menu5"><a href="new_kala.php">اجناس وارداتی</a></li>
-                    <li id="menu4"><a href="nemayandeh.php">نمایندگان</a></li>
-                    <li id="menu3"><a href="nasieh.php">نسیه ها</a></li>
-                    <li id="menu2"><a href="report.php">گزارشات</a></li>
-                    <li id="menu1"><a href="users.php">کاربران</a></li>
+                    <li id="menu6"><a style="display: inline-flex;margin-right: 10%;margin-left: 10%;" href="dashbord.php"><img style="margin-right: 10%;margin-left: 15%" src="assets/img/dashboard.png" width="20" height="20">داشبورد</a></li>
+                    <li id="menu5"><a style="display: inline-flex;margin-right: 10%;margin-left: 10%;" href="new_kala.php"><img style="margin-right: 10%;margin-left: 15%" src="assets/img/Import.png" width="20" height="20">اجناس</a></li>
+                    <li id="menu4"><a style="display: inline-flex;margin-right: 10%;margin-left: 10%;" href="nemayandeh.php"><img style="margin-right: 10%;margin-left: 15%" src="assets/img/nema.png" width="20" height="20">نمایندگان</a></li>
+                    <li id="menu3"><a style="display: inline-flex;margin-right: 10%;margin-left: 10%;" href="nasieh.php"><img style="margin-right: 10%;margin-left: 15%" src="assets/img/nasi.svg" width="20" height="20">نسیه</a></li>
+                    <li id="menu2"><a style="display: inline-flex;margin-right: 10%;margin-left: 10%;" href="report.php"><img style="margin-right: 10%;margin-left: 15%" src="assets/img/report.png" width="20" height="20">گزارشات</a></li>
+                    <li id="menu1"><a style="display: inline-flex;margin-right: 10%;margin-left: 10%;" href="users.php"><img style="margin-right: 10%;margin-left: 15%" src="assets/img/users.png" width="20" height="20">کاربران</a></li>
 
                 </ul>
 
@@ -200,9 +230,15 @@ R::debug(false);
                         </div>
                         <hr>
                         <div class="col-md-12" style="margin-top: 10%">
+                            <div class="form-group" id="validpass2">
                             <label class="text-primary">رمز عبور جدید:</label>
                             <input type="password" id="new_pass1" class="form-control" placeholder="رمز عبور جدید" autocomplete="off">
+                        <ul id="errors_pass" style="margin-top: 3%" class="text-danger">
+
+                        </ul>
+                            </div>
                         </div>
+
                         <div class="col-md-12" style="margin-top: 5%">
                             <label class="text-primary">تکرار رمز عبور:</label>
                             <input type="password" id="new_pass2" class="form-control" placeholder="تکرار رمز عبور" autocomplete="off">

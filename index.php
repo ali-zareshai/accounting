@@ -38,6 +38,7 @@ log2($addr,"visit loggin page");
             $("#showpass").mouseout(function () {
                 $("#inputPassword").attr("type","password");
             }) ;
+            $("#inputuser").focus();
         });
     </script>
 
@@ -50,7 +51,10 @@ log2($addr,"visit loggin page");
         <p id="profile-name" class="profile-name-card"></p>
         <form name="login" class="form-signin" method="post" action="">
             <span id="reauth-email" class="reauth-email"></span>
-            <input name="user" type="text" id="inputuser" class="form-control" placeholder="نام کاربری" required autocomplete="off">
+            <div class="input-group" style="direction: ltr">
+                <span class="input-group-addon"><img src="assets/img/user.png" width="20" height="20"></span>
+            <input style="direction: rtl;margin-bottom: 0%" name="user" type="text" id="inputuser" class="form-control" placeholder="نام کاربری" required autocomplete="off">
+            </div>
             <br>
             <div class="input-group" style="direction: ltr">
                 <span class="input-group-addon"  id="basic-addon1"><img style="cursor: pointer" id="showpass" src="assets/img/eye.svg" alt="مشاهده رمز عبور" height="20" width="20"></span></span></span>

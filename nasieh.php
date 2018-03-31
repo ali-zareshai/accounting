@@ -177,7 +177,7 @@ require "main.php";
 <input type="hidden" id="daryaft">
 <input type="hidden" id="total">
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    نسیه جدید
+    نسیه جدید<img style="margin-right: 10%;" src="assets/img/add.png" width="20" height="20">
 </button>
 
 <!-- Modal -->
@@ -258,7 +258,7 @@ require "main.php";
                 </form>
             </div>
             <div class="modal-footer" style="margin-top: 5%;margin-bottom: 2%">
-                <button type="button" class="btn btn-default" data-dismiss="modal">لغو</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">لغو<img style="margin-right: 10%;" src="assets/img/del.png" width="20" height="20"></button>
                 <button id="save" type="button" class="btn btn-primary" style="margin-right: 10%;width: 20%">ذخیره<img src="assets/img/save.svg" width="20" height="20" style="margin-right: 15%"> </button>
                 <img src="assets/img/Waitinggif" width="40" height="40" id="wait" style="display: none;margin-right: 50%">
             </div>
@@ -267,7 +267,7 @@ require "main.php";
 </div>
 <div class="col-md-12">
     <div class="panel">
-        <button class="btn btn-success" id="download-csv" style="float: left">خروجی اکسل</button>
+        <button class="btn btn-info" id="download-csv" style="float: left">خروجی اکسل<img style="margin-right: 10%;" src="assets/img/Excel.ico" width="20" height="20"></button>
         <div id="example-table" style="margin-top: 5%"></div>
     </div>
 </div>

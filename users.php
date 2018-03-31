@@ -100,7 +100,7 @@ require "assets/jdf.php";
     }
 </script>
 <button style="margin-top: 6%" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    کاربر جدید
+    کاربر جدید<img style="margin-right: 10%;" src="assets/img/add.png" width="20" height="20">
 </button>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -117,19 +117,25 @@ require "assets/jdf.php";
                         <input type="text" id="name" class="form-control" placeholder="نام ونام خانوادگی">
                     </div>
                     <div class="col-md-12">
-                        <div class="form-group" id="validuser">
-                        <label class="text-primary">نام کاربری:</label>
-                        <input type="text" id="username" class="form-control" placeholder="نام کاربری">
+                        <div class="form-group" id="validuser" style="margin-top: 3%;">
+                            <label class="text-primary">نام کاربری:</label>
+                            <div class="input-group" style="direction: ltr">
+                                <span class="input-group-addon"><img src="assets/img/user.png" width="20" height="20"></span>
+                        <input style="direction: rtl" type="text" id="username" class="form-control" placeholder="نام کاربری">
                     </div>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group" id="validpass">
                         <label class="text-primary">رمز عبور:</label>
-                        <input type="password" id="pass1" class="form-control" placeholder="رمز عبور">
-                            <ul id="passerrorul" style="margin-top: 2%;">
+                            <div class="input-group" style="direction: ltr">
+                                <span class="input-group-addon"><img src="assets/img/pass.png" width="20" height="20"></span>
+                        <input style="direction: rtl" type="password" id="pass1" class="form-control" placeholder="رمز عبور">
+                            </div>
+                            <ul id="passerrorul" style="margin-top: 2%;" class="text-danger">
 
                             </ul>
-                    </div>
+                        </div>
                     </div>
                     <div class="col-md-12" style="margin-bottom: 5%">
                         <label class="text-primary">تکرار رمز عبور:</label>
@@ -139,8 +145,8 @@ require "assets/jdf.php";
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-                <button onclick="newww()" type="button" class="btn btn-primary" style="margin-right: 5%">اضافه کردن</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">بستن<img style="margin-right: 10%;" src="assets/img/del.png" width="20" height="20"></button>
+                <button onclick="newww()" type="button" class="btn btn-primary" style="margin-right: 5%">اضافه کردن<img style="margin-right: 10%;" src="assets/img/add.png" width="20" height="20"></button>
                 <img src="assets/img/Waitinggif" width="40" height="40" style="display: none" id="wait">
             </div>
         </div>

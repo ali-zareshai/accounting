@@ -1,8 +1,12 @@
 <?php
 require "../util.php";
 require_once "../security.php";
-session_start();
+Valid::checkToken("chg_pass",$_POST['token']);
 
+session_start();
+$action=Valid::input($_POST['action']);
+
+if ($action=="change"){
 $current_pass=Valid::input($_POST['current_pass']);
 $pass1=Valid::input($_POST['pass1']);
 $pass2=Valid::input($_POST['pass2']);
@@ -37,5 +41,25 @@ if ($row[0]['pass']!=MD5($current_pass)){
         echo "رمز عبور با موفقیت تغییر یافت";
     }else{
         echo "Erroe!!!!";
+    }
+}
+}elseif ($action=="chk"){
+   $pass1=Valid::input($_POST['pass']);
+
+    if (strlen($pass1) < 8) {
+        $errors[] = "رمز عبور کمتر از ۸ کاراکتر است";
+    }
+
+    if (!preg_match("#[0-9]+#", $pass1)) {
+        $errors[] = "رمز عبور باید شامل اعداد هم باشد";
+    }
+
+    if (!preg_match("#[a-zA-Z]+#", $pass1)) {
+        $errors[] = "رمز عبور باید شامل حروف کوچک هم باشد";
+    }
+    if (!empty($errors)){
+        echo implode("-",$errors);
+    }else{
+        echo "ok";
     }
 }

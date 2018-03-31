@@ -2,12 +2,26 @@
 require "main.php";
 ?>
 <script>
+    function ToRial(str) {
+
+        str = str.replace(/\,/g, '');
+        var objRegex = new RegExp('(-?[0-9]+)([0-9]{3})');
+
+        while (objRegex.test(str)) {
+            str = str.replace(objRegex, '$1,$2');
+        }
+
+        return str;
+    }
+
+
+
     function newww() {
         var code=$("#code").val();
         var dataf=$("#pcal1").val();
         var datae=$("#extra").val();
-        var meter=$("#meter_gharid").val();
-        var price=$("#price_gharid").val();
+        var meter=$("#meter_gharid").val().replace(",","");
+        var price=$("#price_gharid").val().replace(",","");
         var token=$("#new_kala_token").val();
         ///////////
         if (code=="" || dataf=="" || datae=="" || meter=="" || price==""){
@@ -54,7 +68,6 @@ require "main.php";
         $("#menu6").removeClass("backm");
         $("#menu5").addClass("backm");
 
-
         $("#example-table").tabulator({
             height:"511px",
             layout:"fitColumns",
@@ -78,6 +91,14 @@ require "main.php";
         });
 
         refresht();
+         //// Add point to input /////
+        $("#meter_gharid").keyup(function () {
+            $("#meter_gharid").val(ToRial($("#meter_gharid").val()));
+        });
+
+        $("#price_gharid").keyup(function () {
+            $("#price_gharid").val(ToRial($("#price_gharid").val()));
+        });
 
     });
 
@@ -96,9 +117,13 @@ require "main.php";
 
 </script>
 
-
+<style>
+    .col-md-12{
+        margin-top: 3%!important;
+    }
+</style>
 <button style="margin-top: 6%" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    جنس جدید
+    جنس جدید<img style="margin-right: 10%;" src="assets/img/add.png" width="20" height="20">
 </button>
 
 <!--<div class="col-md-3">-->
@@ -113,7 +138,7 @@ require "main.php";
                 <button  type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel" style="margin-right: 50%">کالای جدید</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="margin-bottom: 22%;">
                 <form name="new_kala">
                     <div class="col-md-12">
                         <label class="text-primary">کد کالا:</label>
@@ -121,23 +146,32 @@ require "main.php";
                     </div>
                     <div class="col-md-12">
                         <label class="text-primary">تاریخ:</label>
-                        <input type="text" id="pcal1" class="form-control" placeholder="تاریخ">
+                        <div class="input-group" style="direction: ltr">
+                            <span id="basic-addon1" class="input-group-addon"><img src="assets/img/calendar-alt.svg" height="20" width="20"></span>
+                        <input style="direction: rtl;margin-bottom: -4%;" type="text" id="pcal1" class="form-control" placeholder="تاریخ">
                         <input type="hidden" id="extra" class="pdate">
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <label class="text-primary">متراژ خرید:</label>
-                        <input type="text" id="meter_gharid" class="form-control" placeholder="متراژ خریداری(مترمربع)">
+                        <div class="input-group" style="direction: ltr">
+                            <span class="input-group-addon">مترمربع</span>
+                            <input style="direction: rtl" type="text" id="meter_gharid" class="form-control" placeholder="متراژ خریداری(مترمربع)">
+                    </div>
                     </div>
                     <div class="col-md-12" style="margin-bottom: 5%">
-                        <label class="text-primary">فیمت خرید:</label>
-                        <input type="text" id="price_gharid" class="form-control" placeholder="قیمت خریداری(تومان)">
+                        <label class="text-primary">قیمت خرید:</label>
+                        <div class="input-group" style="direction: ltr">
+                            <span class="input-group-addon">تومان</span>
+                        <input style="direction: rtl" type="text" id="price_gharid" class="form-control" placeholder="قیمت خریداری(تومان)">
+                    </div>
                     </div>
 
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-                <button onclick="newww()" type="button" class="btn btn-primary" style="margin-right: 5%">اضافه کردن</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">بستن<img style="margin-right: 10%;" src="assets/img/del.png" width="20" height="20"></button>
+                <button onclick="newww()" type="button" class="btn btn-primary" style="margin-right: 5%">ذخیره<img src="assets/img/save.svg" width="20" height="20" style="margin-right: 15%"></button>
                 <img src="assets/img/Waitinggif" width="40" height="40" style="display: none" id="wait">
             </div>
         </div>
@@ -145,7 +179,7 @@ require "main.php";
 </div>
 <div class="col-md-12" style="z-index: 1">
     <div class="container" >
-        <button class="btn btn-success" id="download-csv"style="float: left">خروجی اکسل</button>
+        <button class="btn btn-info" id="download-csv"style="float: left">خروجی اکسل<img style="margin-right: 10%;" src="assets/img/Excel.ico" width="20" height="20"></button>
 
         <div class="panel panel-primary" style="margin-top: 5%;">
             <div class="form-inline panel-body">
