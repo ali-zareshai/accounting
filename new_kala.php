@@ -46,6 +46,12 @@ require "main.php";
                        $("#myModal").removeClass("in");
                        $("#myModal").css("display","none");
                        $("div").removeClass("modal-backdrop");
+                       $("#code").val("");
+                       $("#pcal1").val("");
+                       $("#extra").val("");
+                       $("#meter_gharid").val("");
+                       $("#price_gharid").val("");
+                       $("#new_kala_token").val("");
                        refresht();
                    }else{
                        bootbox.alert(data);

@@ -112,7 +112,7 @@ R::debug(false);
             var currentpass=$("#current_pass").val();
             var new1=$("#new_pass1").val();
             var new2=$("#new_pass2").val();
-            var token=$("#token").val();
+            var token=$("#chg_pass_token").val();
 
             if (currentpass=="" || new1=="" || new2==""){
                 bootbox.alert("لطفا تمام فیلدها را کامل کنید");
@@ -134,6 +134,10 @@ R::debug(false);
                                     $("#myModal").css("display","none");
                                     $("div").removeClass("modal-backdrop");
                                     bootbox.alert("رمز عبور با موفقیت تغییر یافت");
+
+                                    $("#current_pass").val("");
+                                    $("#new_pass1").val("");
+                                    $("#new_pass2").val("");
                                     // refresht();
                                 }else{
                                     bootbox.alert(data);
@@ -175,7 +179,7 @@ R::debug(false);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div style="display: inline-flex;margin-top: 3%;margin-left: 25%">
+                <div style="display: inline-flex;margin-top: 3%;margin-left: 15%">
 
                 <div style="margin-top: 1%;margin-left: 20%">
                     <span class="text-warning" id="timeer" style="font-size: 20px"></span>
